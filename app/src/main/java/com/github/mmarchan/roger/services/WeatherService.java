@@ -1,5 +1,8 @@
 package com.github.mmarchan.roger.services;
 
+import android.content.Context;
+
+import com.github.mmarchan.roger.R;
 import com.github.mmarchan.roger.tools.Location;
 import com.github.mmarchan.roger.tools.Weather;
 
@@ -18,13 +21,15 @@ import java.nio.charset.StandardCharsets;
 import javax.net.ssl.HttpsURLConnection;
 
 public class WeatherService {
-    private final static String KEY = "5698aeff5124dc5e586ef0bcbbba5ee5\n";
 
-    public WeatherService(){
+    private Context context;
+
+    public WeatherService(Context context){
+        this.context = context;
     }
 
     public Weather getWeather(Location location) {
-        String queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+ location.getLatitude()+ "&lon="+ location.getLongitude()+"&exclude=hourly,daily&units=metric&appid="+KEY;
+        String queryUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+ location.getLatitude()+ "&lon="+ location.getLongitude()+"&exclude=hourly,daily&units=metric&appid="+context.getString(R.string.openweather_api_key);
         Weather thisWeather = null;
         JSONObject request = null;
         request = getWeatherJSONAnswer(queryUrl);

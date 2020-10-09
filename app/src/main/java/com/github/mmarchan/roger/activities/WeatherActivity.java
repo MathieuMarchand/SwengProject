@@ -74,7 +74,7 @@ public class WeatherActivity extends AppCompatActivity {
         );
 
         location = new LocationService(this);
-        ws = new WeatherService();
+        ws = new WeatherService(this);
         gs = new GeocodingService(this);
     }
 
