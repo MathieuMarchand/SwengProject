@@ -21,6 +21,6 @@ public class GreetingActivity extends AppCompatActivity {
 
         // Capture the layout's TextView and set the string as its text
         TextView textView = findViewById(R.id.welcomeView);
-        textView.setText("Bienvenue " + message);
+        textView.setText("Je vous connais" + message + "?");
     }
 }
